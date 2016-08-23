@@ -28,9 +28,7 @@ module.exports = webpackConfig => {
         return;
       }
       callback();
-    },
-
-    { codemirror: "var devtoolsRequire('devtools/client/sourceeditor/editor')" }
+    }
   ];
 
   // Remove the existing DefinePlugin so we can override it.

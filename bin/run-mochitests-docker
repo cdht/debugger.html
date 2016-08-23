@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+docker run -it \
+  -v `pwd`/public/js/test/mochitest:/firefox/devtools/client/debugger/new/test/mochitest \
+  -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+  -e "DISPLAY=unix$DISPLAY" \
+  --ipc host \
+  jlongster/mochitest-runner \
+  /bin/bash -c "export SHELL=/bin/bash; cd firefox && ./mach mochitest --subsuite devtools devtools/client/debugger/new/test/mochitest/"
